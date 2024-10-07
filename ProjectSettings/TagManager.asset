@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Rewards
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Enermy
+  - Rewards
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4047500269
+    locked: 0
+  - name: Ground
+    uniqueID: 3192451407
+    locked: 0
+  - name: Foreground
+    uniqueID: 2059991939
+    locked: 0
+  - name: Enemy
+    uniqueID: 3502768529
+    locked: 0
+  - name: Rewards
+    uniqueID: 1873557589
+    locked: 0
+  - name: Player
+    uniqueID: 4130816935
+    locked: 0
