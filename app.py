@@ -8,18 +8,16 @@ app = Flask(__name__)
 # .env 파일에서 환경 변수를 로드
 load_dotenv()
 
-# 환경 변수 출력
-print("Host:", os.getenv('CLEARDB_HOST'))
-print("User:", os.getenv('CLEARDB_USERNAME'))
-print("Password:", os.getenv('CLEARDB_PASSWORD'))
-print("Database:", os.getenv('CLEARDB_DATABASE'))
-
 # ClearDB 연결 - 환경 변수로 정보 가져오기
 connection = mysql.connector.connect(
-    host=os.environ.get('CLEARDB_HOST'),
-    user=os.environ.get('CLEARDB_USERNAME'),
-    password=os.environ.get('CLEARDB_PASSWORD'),
-    database=os.environ.get('CLEARDB_DATABASE'),
+    # host= os.environ.get('CLEARDB_HOST'),
+    # user=os.environ.get('CLEARDB_USERNAME'),
+    # password=os.environ.get('CLEARDB_PASSWORD'),
+    # database=os.environ.get('CLEARDB_DATABASE'),
+    host = "us-cluster-east-01.k8s.cleardb.net",
+    user = "b664f22c0e22f7",
+    password = "cfbde9d8",
+    database = "heroku_9af0bc3ddcd2b1c",
     use_pure=True
 )
 
