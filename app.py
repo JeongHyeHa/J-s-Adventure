@@ -1,17 +1,20 @@
 import os
 from flask import Flask, jsonify, request
-import pymysql
+import mysql.connector
 
 app = Flask(__name__)
 
 # ClearDB 연결 - 환경 변수로 정보 가져오기
-connection = pymysql.connect(
-    host=os.environ.get('CLEARDB_HOST'),
-    user=os.environ.get('CLEARDB_USERNAME'),
-    password=os.environ.get('CLEARDB_PASSWORD'),
-    db=os.environ.get('CLEARDB_DATABASE'),
-    charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor
+connection = mysql.connector.connect(
+    # host=os.environ.get('CLEARDB_HOST'),
+    # user=os.environ.get('CLEARDB_USERNAME'),
+    # password=os.environ.get('CLEARDB_PASSWORD'),
+    # database=os.environ.get('CLEARDB_DATABASE'),
+    host='us-cluster-east-01.k8s.cleardb.net',  # 로컬 MySQL 서버 주소
+    user='b664f22c0e22f7',  # 로컬 MySQL 사용자 이름
+    password='cfbde9d8',  # 로컬 MySQL 비밀번호
+    database='heroku_9af0bc3ddcd2b1c',  # 데이터베이스 이름
+    use_pure=True  # TCP 연결 사용
 )
 
 # 데이터 조회 API
