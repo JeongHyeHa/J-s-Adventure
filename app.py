@@ -4,17 +4,20 @@ import mysql.connector
 
 app = Flask(__name__)
 
+# 환경 변수 출력으로 확인
+print("Host:", os.environ.get('CLEARDB_HOST'))
+print("User:", os.environ.get('CLEARDB_USERNAME'))
+print("Password:", os.environ.get('CLEARDB_PASSWORD'))
+print("Database:", os.environ.get('CLEARDB_DATABASE'))
+
+
 # ClearDB 연결 - 환경 변수로 정보 가져오기
 connection = mysql.connector.connect(
-    # host=os.environ.get('CLEARDB_HOST'),
-    # user=os.environ.get('CLEARDB_USERNAME'),
-    # password=os.environ.get('CLEARDB_PASSWORD'),
-    # database=os.environ.get('CLEARDB_DATABASE'),
-    host='us-cluster-east-01.k8s.cleardb.net',  # 로컬 MySQL 서버 주소
-    user='b664f22c0e22f7',  # 로컬 MySQL 사용자 이름
-    password='cfbde9d8',  # 로컬 MySQL 비밀번호
-    database='heroku_9af0bc3ddcd2b1c',  # 데이터베이스 이름
-    use_pure=True  # TCP 연결 사용
+    host=os.environ.get('CLEARDB_HOST'),
+    user=os.environ.get('CLEARDB_USERNAME'),
+    password=os.environ.get('CLEARDB_PASSWORD'),
+    database=os.environ.get('CLEARDB_DATABASE'),
+    use_pure=True
 )
 
 # 데이터 조회 API
