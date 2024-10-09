@@ -5,11 +5,17 @@ import mysql.connector
 app = Flask(__name__)
 
 # 환경 변수 출력으로 확인
-print("Host:", os.environ.get('CLEARDB_HOST'))
-print("User:", os.environ.get('CLEARDB_USERNAME'))
-print("Password:", os.environ.get('CLEARDB_PASSWORD'))
-print("Database:", os.environ.get('CLEARDB_DATABASE'))
+from dotenv import load_dotenv
+import os
 
+# .env 파일에서 환경 변수를 로드
+load_dotenv()
+
+# 환경 변수 출력
+print("Host:", os.getenv('CLEARDB_HOST'))
+print("User:", os.getenv('CLEARDB_USERNAME'))
+print("Password:", os.getenv('CLEARDB_PASSWORD'))
+print("Database:", os.getenv('CLEARDB_DATABASE'))
 
 # ClearDB 연결 - 환경 변수로 정보 가져오기
 connection = mysql.connector.connect(
