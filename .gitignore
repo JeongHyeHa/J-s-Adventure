@@ -19,8 +19,11 @@ Build/
 Builds/
 Logs/
 MemoryCaptures/
-Packages/manifest.json.meta
-Packages/packages-lock.json.meta
+Packages/
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/QualitySettings.asset
+ProjectSettings/ProjectSettings.asset
 
 # Visual Studio / MonoDevelop project files
 .vscode/
@@ -41,6 +44,7 @@ Packages/packages-lock.json.meta
 *.mdb
 *.opendb
 *.VC.db
+.meta
 
 # Ignore crash reports, log files, temporary files, and builds
 *.stackdump
@@ -51,3 +55,6 @@ Packages/packages-lock.json.meta
 
 # Ignore Visual Studio folder
 .vs/
+
+# Ignore Unity generated metadata files
+*.pidb.meta
