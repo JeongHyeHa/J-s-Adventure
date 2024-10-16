@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StartGameManager : MonoBehaviour
 {
     public static StartGameManager Instance { get; private set; }
+    
     public GameObject startCanvas;
+    public GameObject loginUI;
     public Image blackScreen;
+    public TextMeshProUGUI startTitleText;
+    public TextMeshProUGUI enterText;
+    public Button loginCloseButton;
+    public TMP_InputField loginIDInputField;
+    public TMP_InputField loginClassInputField;
+    public TMP_InputField loginNameInputField;
+
+    private Vector3 targetPosition;         // 목표 위치
+    private RectTransform startTransform;
+    Animator animator;
+    Animator loginAnim;
+    private float speed = 0.4f;          // 이동 속도
     public float fadeDuration = 0.5f;       // 페이드 아웃에 걸리는 시간
-    public bool isGameStarting = false;    // 게임이 시작되었는지 여부
+    public bool isGameStarting = false;     // 게임이 시작되었는지 여부
 
     private void Awake()
     {
@@ -24,27 +39,51 @@ public class StartGameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void Start()
     {
-        if (startCanvas == null)
-        {
-            startCanvas = GameObject.Find("StartCanvas");
-        }
-        if (blackScreen == null)
-        {
-            blackScreen = GameObject.Find("Black").GetComponent<Image>();
-        }
+        startCanvas = GameObject.Find("StartCanvas");
+        loginUI = GameObject.Find("LoginUI");
+        blackScreen = GameObject.Find("Black").GetComponent<Image>();
+        startTitleText = GameObject.Find("StartTitleText").GetComponent<TextMeshProUGUI>();
+        enterText = GameObject.Find("EnterText").GetComponent<TextMeshProUGUI>();
+        animator = startTitleText.GetComponent<Animator>();
+        loginAnim = loginUI.GetComponent<Animator>();
+        loginCloseButton = GameObject.Find("LoginCloseButton").GetComponent<Button>();
+        loginIDInputField = GameObject.Find("LoginIDInputField").GetComponent<TMP_InputField>();
+        loginClassInputField = GameObject.Find("LoginClassInputField").GetComponent<TMP_InputField>();
+        loginNameInputField = GameObject.Find("LoginNameInputField").GetComponent<TMP_InputField>();
+
 
         blackScreen.color = new Color(0, 0, 0, 0);
+        loginUI.SetActive(false);
+
+        // 타이틀 목표 위치
+        startTransform = startTitleText.GetComponent<RectTransform>();
+        targetPosition = new Vector3(startTransform.anchoredPosition.x, 129f, 0f);
+        
+        
+        loginCloseButton.onClick.AddListener(OnCloseButtonLogin);
     }
 
     void Update()
     {
-        // 마우스 클릭이 감지되면 페이드 아웃 시작
+        // 마우스 클릭이 감지되면 로그인 모드
         if (Input.GetMouseButtonDown(0) && !isGameStarting)
         {
-            StartCoroutine(FadeToBlackAndStartGame());
+            animator.SetBool("startMove", true);
+
+            // 로그인 화면으로 전환
+            enterText.gameObject.SetActive(false);
+            //StartCoroutine(FadeToBlackAndStartGame());
         }
+    }
+
+    // 텍스트 애니메이션이 완료된 후 호출될 함수 (Animation Event에서 설정)
+    public void OnTextMoveComplete()
+    {
+        loginUI.SetActive(true);
+        loginAnim.SetBool("isPopup", true);
     }
 
     IEnumerator FadeToBlackAndStartGame()
@@ -66,5 +105,18 @@ public class StartGameManager : MonoBehaviour
 
         SceneManager.LoadScene("J's Adventure _ver001");
         isGameStarting = true;
+    }
+
+    private void OnCloseButtonLogin()
+    {
+        enterText.gameObject.SetActive(true);
+        animator.SetBool("startMove", false);
+
+        loginAnim.SetBool("isPopup", false);
+        isGameStarting = false;
+
+        loginIDInputField.text = "";
+        loginClassInputField.text = "";
+        loginNameInputField.text = "";
     }
 }

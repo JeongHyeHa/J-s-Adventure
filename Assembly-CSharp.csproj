@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{B8640059-ECC2-FDEA-9458-CFBD22FF19CD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -60,12 +61,62 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.48f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\PlayerController.cs" />
-    <Compile Include="Assets\Script\BackgroundLoop.cs" />
-    <Compile Include="Assets\Script\ScrollingObject.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\CleanButtonConfig.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\SpriteSwapper.cs" />
+    <Compile Include="Assets\Script\Trip\JumpObjectManager.cs" />
+    <Compile Include="Assets\Script\CharacterManager\DinoMove.cs" />
+    <Compile Include="Assets\Script\Trip\DinoTriggerPoint.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\URLOpener.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\Gradient.cs" />
+    <Compile Include="Assets\Script\CharacterManager\BatMove.cs" />
+    <Compile Include="Assets\Script\NetworkManager.cs" />
+    <Compile Include="Assets\Script\CharacterManager\EnemyMove.cs" />
+    <Compile Include="Assets\Script\StartUI\LoginManager.cs" />
+    <Compile Include="Assets\Script\CharacterManager\BearMove.cs" />
+    <Compile Include="Assets\Script\GameUI\CountdownTimer.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\SceneTransition.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\Utils.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\CleanButton.cs" />
+    <Compile Include="Assets\Script\CharacterManager\FrogMove.cs" />
+    <Compile Include="Assets\Script\CharacterManager\EnemyDie.cs" />
+    <Compile Include="Assets\Script\CharacterManager\PlayerController.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\PopupOpener.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\Transition.cs" />
+    <Compile Include="Assets\Script\GameUI\GameManager.cs" />
+    <Compile Include="Assets\Script\CharacterManager\EagleMove.cs" />
+    <Compile Include="Assets\Script\Trip\EagleTriggerPoint.cs" />
+    <Compile Include="Assets\Script\StartUI\BlinkingText.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\Popup.cs" />
+    <Compile Include="Assets\Script\StartUI\StartGameManager.cs" />
+    <Compile Include="Assets\Script\Camera\FollowCam.cs" />
+    <Compile Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Scripts\Tooltip.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Newtonsoft.Json.dll" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Font\License.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Fonts\Roboto Condensed\Apache License.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Fonts\Roboto\Apache License.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -398,6 +449,10 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.48f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
@@ -1078,6 +1133,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

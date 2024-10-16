@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BlinkingText : MonoBehaviour
 {
     public TextMeshProUGUI uiText;  // Unity의 Text UI 컴포넌트
-    public float blinkInterval = 0.5f;  // 깜빡이는 간격(초 단위)
+    public float blinkInterval = 0.7f;  // 깜빡이는 간격(초 단위)
 
     void Start()
     {
